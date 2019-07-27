@@ -57,7 +57,7 @@ public:
 
 class Tuple {
 public:
-	String type;
+	string type;
 	Stack* path;
 	int bound;
 	bool inf;
@@ -67,4 +67,4 @@ public:
 	void setBound(int b);
 	void setPath(Stack* path);
 	~Tuple();
-}
+};
