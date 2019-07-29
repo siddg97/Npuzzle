@@ -7,9 +7,9 @@
 
 
 ## IDA* Pseudocode:
-```{r, tidy=FALSE, eval=FALSE, highlight=FALSE }
+```
 path <- current search path [STACK ADT]
-node <- current node [last node in `path`
+node <- current node [last node in path]
 g <- cost to reach current node
 f(n) <- estimated cost of cheapeast path [ROOT ----> NODE -----> GOAL]
 h(n) <- estimated cost of cheapest path [NODE ----> GOAL]
