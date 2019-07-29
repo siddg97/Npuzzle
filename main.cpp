@@ -23,18 +23,6 @@ Tuple ida_star(Puzzle p){
 	}
 }
 
-// Tuple* search(Stack* path, int g, int bound){
-// 	Tnode* n = path->last();
-// 	int f = g + h(n);
-// 	if(is_goal(n)){
-// 		Tuple* t = new Tuple(path,bound);
-// 		t->setINF(false);
-// 		t->setType("FOUND");
-// 		return t;
-// 	}
-// 	int min = 2147483647;
-// }
-
 int main(){
 	
 	return 0;
