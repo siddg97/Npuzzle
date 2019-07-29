@@ -131,58 +131,8 @@ Tnode::Tnode(Puzzle15* p){
 	this->p = p;
 }
 
-// Tnode::Tnode(Tnode* parent,vector<Tnode*> children){
-// 	this->p = NULL;
-// 	this->parent = parent;
-// 	this->children = children;
-// }
-
-// Tnode::Tnode(Tnode* parent,vector<Tnode*> children, Puzzle15* p){
-// 	this->p = p;
-// 	this->parent = parent;
-// 	this->children = children;
-// }
-
-// Tnode* Tnode::getParent(){
-// 	return this->parent;
-// }
-
-// void Tnode::setChildren(vector<Tnode*> c){
-// 	this->children = c;
-// }
-
-// vector<Tnode*> Tnode::getChildren(){
-// 	return this->children;
-// }
-
-// void Tnode::addChild(Tnode* child){
-// 	this->children.push_back(child);
-// }
-
-// void Tnode::setData(Puzzle15* p){
-// 	this->p = p;
-// }
-
-// Puzzle15* Tnode::getData(){
-// 	return this->p;
-// }
-
-// bool Tnode::isLeaf(){
-// 	return this->children.empty();
-// }
-
-// bool Tnode::isInternalNode(){
-// 	return (this->parent != NULL) && (!this->isLeaf());
-// }
-
-// bool Tnode::isRoot(){
-// 	return this->parent == NULL;
-// }
-
 Tnode::~Tnode(){
-	// this->children.~vector();
 	this->parent = NULL;
-	// this->data = 0;
 }
 
 //======================[Tuple Class Implementation]==============================
@@ -194,21 +144,11 @@ Tuple::Tuple(){
 	bool inf = false;
 }
 
-Tuple::Tuple(Stack* path, int bound){
+Tuple::Tuple(string type, Stack* path, int bound, bool inf){
+	this->type = type;
 	this->bound = bound;
 	this->path = path;
-}
-
-void Tuple::setINF(bool inf){
 	this->inf = inf;
-}
-
-void Tuple::setBound(int b){
-	this->bound = b;
-}
-
-void Tuple::setPath(Stack* path){
-	this->path = path;
 }
 
 Tuple::~Tuple(){

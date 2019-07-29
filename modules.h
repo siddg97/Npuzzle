@@ -4,21 +4,8 @@ using namespace std;
 
 class Tnode{
 public:
-	// Tnode* parent;
-	// vector <Tnode*> children;
 	Puzzle15* p;
 	Tnode(Puzzle15* p);
-	// Tnode(Tnode* parent, vector<Tnode*> children);
-	// Tnode(Tnode* parent, vector<Tnode*> children, Puzzle15* p);
-	// Tnode* getParent();
-	// void setChildren(vector<Tnode*> c);
-	// vector<Tnode*> getChildren();
-	// void addChild(Tnode* child);
-	// void setData(Puzzle15* p);
-	// Puzzle15* getData();
-	// bool isLeaf();
-	// bool isInternalNode();
-	// bool isRoot();
 	~Tnode();
 };
 
@@ -53,7 +40,7 @@ public:
 	~Stack();
 	void push(Tnode* tn);
 	Tnode* pop();		// returns NULL if stack is empty
-	Tnode* getTop();
+	Tnode* getTop();	// returns NULL if stack is empty
 	void print_stack();
 };
 
@@ -64,9 +51,6 @@ public:
 	int bound;
 	bool inf;
 	Tuple();
-	Tuple(Stack* path, int bound);
-	void setINF(bool inf);
-	void setBound(int b);
-	void setPath(Stack* path);
+	Tuple(string type,Stack* path, int bound, bool inf);
 	~Tuple();
 };
