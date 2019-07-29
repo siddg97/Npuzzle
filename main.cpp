@@ -9,7 +9,4 @@ Tuple ida_star(Puzzle15* p, string h) {
 	Stack* path = new Stack();
 	path->push(root);
 	int bound;
-	if(h=="manhattan"){
-		bound = manhattan
-	}
 }
