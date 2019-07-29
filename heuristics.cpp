@@ -1,4 +1,3 @@
-#include "modules.h"
 #include <iostream>
 #include <random> 
 #include <math.h>
@@ -58,15 +57,15 @@ int max(int *board, int s){
 	return max(manhattan(board,s),euc_sq(board,s));
 }
 
-int main(){
+// int main(){
 
-	int b[9]={1,2,3,4,5,6,7,0,8};
-	cout<<sizeof(b)<<endl;
-	int s=sizeof(b)/sizeof(int);
-	cout<<s<<endl;
-	// cout<<sizeof(int);
-	//float p=euc_sq(b);
-	int p=euc_sq(b,s);
-	cout<<p;
-	return 0;
-}
+// 	int b[9]={1,2,3,4,5,6,7,0,8};
+// 	cout<<sizeof(b)<<endl;
+// 	int s=sizeof(b)/sizeof(int);
+// 	cout<<s<<endl;
+// 	// cout<<sizeof(int);
+// 	//float p=euc_sq(b);
+// 	int p=euc_sq(b,s);
+// 	cout<<p;
+// 	return 0;
+// }
