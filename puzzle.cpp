@@ -1,4 +1,4 @@
-#include "modules.h"
+//#include "modules.h"
 #include <iostream>
 #include <random> 
 #include <bits/stdc++.h>
@@ -13,27 +13,27 @@ void shuffle_array(int arr[], int n) { //from : https://www.geeksforgeeks.org/sh
             default_random_engine(seed)); 
 } 
 
-class Puzzle{
+class Puzzle15{
 public:
 	int Board[16]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0};
 
-	Puzzle();
-	Puzzle& operator=(const Puzzle &L);
-	bool operator==(const Puzzle &L);
+	Puzzle15();
+	Puzzle15& operator=(const Puzzle15 &L);
+	bool operator==(const Puzzle15 &L);
 	void print();
 	bool solvable();
 	bool isgoal();
 	enum moves { up='u', down='d', left='l', right='r'};
 };
 
-Puzzle::Puzzle(){
-	shuffle_array(this->Board,16);
+Puzzle15::Puzzle15(){
+	//shuffle_array(this->Board,16);
 	// int a=this->Board[14];
  //  	while(this->isgoal()==0)
 	// 	shuffle_array(this->Board,16);
 }
 
-Puzzle& Puzzle::operator=(const Puzzle &L){
+Puzzle15& Puzzle15::operator=(const Puzzle15 &L){
 	if(this==&L)
 		return *this;
 	for(int i=0; i<16;i++)
@@ -41,7 +41,7 @@ Puzzle& Puzzle::operator=(const Puzzle &L){
 	return *this;
 }
 
-bool Puzzle::operator==(const Puzzle &L) {
+bool Puzzle15::operator==(const Puzzle15 &L) {
 	for(int i=0;i<16;i++)
 	{
 		if(this->Board[i]!=L.Board[i])
@@ -50,7 +50,7 @@ bool Puzzle::operator==(const Puzzle &L) {
 	return true;
 }
 
-void Puzzle::print(){
+void Puzzle15::print(){
 	for(int i=0;i<4;i++){
 		for(int j=0;j<4;j++){
 			cout<<"| ";
@@ -66,25 +66,101 @@ void Puzzle::print(){
 	}
 }
 
-bool Puzzle::solvable(){
+bool Puzzle15::solvable(){
 	int count=0;
 	for(int i=0;i<15;i++){ 
         for (int j=i+1;j<16;j++)
-             if(this->Board[i]>this->Board[j] && this->Board[i]!=0 &&this->Board!=0) 
+             if(this->Board[i]>this->Board[j] && this->Board[i]!=0 &&this->Board[j]!=0) 
                  count++;
     }
-    return count%2+1;
+    cout<<count<<endl;
+    return (count%2+1)%2;
+    //return count%2;
 }
 
-bool Puzzle::isgoal(){
+bool Puzzle15::isgoal(){
 	int arr[16]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0};
 	if(this->Board==arr)
 		return true;
 	return false;
 }
 
+class Puzzle25{
+public:
+	int Board[25]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,0};
+
+	Puzzle25();
+	Puzzle25& operator=(const Puzzle25 &L);
+	bool operator==(const Puzzle25 &L);
+	void print();
+	bool solvable();
+	bool isgoal();
+	enum moves { up='u', down='d', left='l', right='r'};
+};
+
+
+Puzzle25::Puzzle25(){
+	shuffle_array(this->Board,25);
+	// int a=this->Board[14];
+ //  	while(this->isgoal()==0)
+	// 	shuffle_array(this->Board,16);
+}
+
+Puzzle25& Puzzle25::operator=(const Puzzle25 &L){
+	if(this==&L)
+		return *this;
+	for(int i=0; i<25;i++)
+		this->Board[i]=L.Board[i];
+	return *this;
+}
+
+bool Puzzle25::operator==(const Puzzle25 &L) {
+	for(int i=0;i<25;i++)
+	{
+		if(this->Board[i]!=L.Board[i])
+			return false;
+	}
+	return true;
+}
+
+void Puzzle25::print(){
+	for(int i=0;i<5;i++){
+		for(int j=0;j<5;j++){
+			cout<<"| ";
+			if(this->Board[i*5+j]==0)
+				cout<<"* | ";
+			else if(this->Board[i*5+j]>=10)
+				cout<<this->Board[i*5+j]<<"| ";
+			else
+				cout<<this->Board[i*5+j]<<" | ";
+
+		}
+		cout<<endl;
+	}
+}
+
+bool Puzzle25::solvable(){
+	int count=0;
+	for(int i=0;i<24;i++){ 
+        for (int j=i+1;j<25;j++)
+             if(this->Board[i]>this->Board[j] && this->Board[i]!=0 &&this->Board[j]!=0) 
+                 count++;
+    }
+    return (count%2+1)%2;
+}
+
+bool Puzzle25::isgoal(){
+	int arr[25]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,0};
+	if(this->Board==arr)
+		return true;
+	return false;
+}
+
 int main(){
-	Puzzle p=Puzzle();
+	Puzzle15 p = Puzzle15();
+	//int a= p.Board[15];
+	p.Board[11]=15;
+	p.Board[14]=12;
 	for(int i=0; i<16;i++){
 		cout<<" "<<p.Board[i];
 	}
