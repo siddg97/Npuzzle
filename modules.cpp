@@ -76,6 +76,12 @@ Tnode* Llist::getHead(){
 	return this->head->tn;
 }
 
+//======================[length() function Implementation]==============================
+
+int length(Tnode*s arr[]){
+	return (sizeof(arr)/sizeof(arr[0]))
+}
+
 //======================[STACK Class Implementation]==============================
 
 Stack::Stack(){
@@ -123,62 +129,60 @@ void Stack::print_stack(){
 
 Tnode::Tnode(Puzzle15* p){
 	this->p = p;
-	this->parent = NULL;
-	this->children = NULL;
 }
 
-Tnode::Tnode(Tnode* parent,vector<Tnode*> children){
-	this->p = NULL;
-	this->parent = parent;
-	this->children = children;
-}
+// Tnode::Tnode(Tnode* parent,vector<Tnode*> children){
+// 	this->p = NULL;
+// 	this->parent = parent;
+// 	this->children = children;
+// }
 
-Tnode::Tnode(Tnode* parent,vector<Tnode*> children, Puzzle15* p){
-	this->p = p;
-	this->parent = parent;
-	this->children = children;
-}
+// Tnode::Tnode(Tnode* parent,vector<Tnode*> children, Puzzle15* p){
+// 	this->p = p;
+// 	this->parent = parent;
+// 	this->children = children;
+// }
 
-Tnode* Tnode::getParent(){
-	return this->parent;
-}
+// Tnode* Tnode::getParent(){
+// 	return this->parent;
+// }
 
-void Tnode::setChildren(vector<Tnode*> c){
-	this->children = c;
-}
+// void Tnode::setChildren(vector<Tnode*> c){
+// 	this->children = c;
+// }
 
-vector<Tnode*> Tnode::getChildren(){
-	return this->children;
-}
+// vector<Tnode*> Tnode::getChildren(){
+// 	return this->children;
+// }
 
-void Tnode::addChild(Tnode* child){
-	this->children.push_back(child);
-}
+// void Tnode::addChild(Tnode* child){
+// 	this->children.push_back(child);
+// }
 
-void Tnode::setData(Puzzle15* p){
-	this->p = p;
-}
+// void Tnode::setData(Puzzle15* p){
+// 	this->p = p;
+// }
 
-Puzzle15* Tnode::getData(){
-	return this->p;
-}
+// Puzzle15* Tnode::getData(){
+// 	return this->p;
+// }
 
-bool Tnode::isLeaf(){
-	return this->children.empty();
-}
+// bool Tnode::isLeaf(){
+// 	return this->children.empty();
+// }
 
-bool Tnode::isInternalNode(){
-	return (this->parent != NULL) && (!this->isLeaf());
-}
+// bool Tnode::isInternalNode(){
+// 	return (this->parent != NULL) && (!this->isLeaf());
+// }
 
-bool Tnode::isRoot(){
-	return this->parent == NULL;
-}
+// bool Tnode::isRoot(){
+// 	return this->parent == NULL;
+// }
 
 Tnode::~Tnode(){
-	this->children.~vector();
+	// this->children.~vector();
 	this->parent = NULL;
-	this->data = 0;
+	// this->data = 0;
 }
 
 //======================[Tuple Class Implementation]==============================

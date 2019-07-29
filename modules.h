@@ -1,27 +1,28 @@
-#include <vector>
 #include <string>
 #include "problem.h"
 using namespace std;
 
 class Tnode{
 public:
-	Tnode* parent;
-	vector <Tnode*> children;
+	// Tnode* parent;
+	// vector <Tnode*> children;
 	Puzzle15* p;
 	Tnode(Puzzle15* p);
-	Tnode(Tnode* parent, vector<Tnode*> children);
-	Tnode(Tnode* parent, vector<Tnode*> children, Puzzle15* p);
-	Tnode* getParent();
-	void setChildren(vector<Tnode*> c);
-	vector<Tnode*> getChildren();
-	void addChild(Tnode* child);
-	void setData(Puzzle15* p);
-	Puzzle15* getData();
-	bool isLeaf();
-	bool isInternalNode();
-	bool isRoot();
+	// Tnode(Tnode* parent, vector<Tnode*> children);
+	// Tnode(Tnode* parent, vector<Tnode*> children, Puzzle15* p);
+	// Tnode* getParent();
+	// void setChildren(vector<Tnode*> c);
+	// vector<Tnode*> getChildren();
+	// void addChild(Tnode* child);
+	// void setData(Puzzle15* p);
+	// Puzzle15* getData();
+	// bool isLeaf();
+	// bool isInternalNode();
+	// bool isRoot();
 	~Tnode();
 };
+
+int length(Tnode* arr[]);
 
 class Node{
 public:
