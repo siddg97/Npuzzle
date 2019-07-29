@@ -9,7 +9,11 @@ public:
 	void print();
 	bool solvable();
 	bool isgoal();
-	enum moves { up='u', down='d', left='l', right='r'};
+	int tile_num();
+	void shift_up();
+	void shift_down();
+	void shift_left();
+	void shift_right();
 };
 
 class Puzzle25{
@@ -21,5 +25,8 @@ public:
 	void print();
 	bool solvable();
 	bool isgoal();
-	enum moves { up='u', down='d', left='l', right='r'};
+	void shift_up();
+	void shift_down();
+	void shift_left();
+	void shift_right();
 };

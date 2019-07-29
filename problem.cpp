@@ -2,6 +2,7 @@
 #include <random> 
 #include <bits/stdc++.h>
 #include "problem.h"
+#include <vector>
 using namespace std;
 
 void shuffle_array(int arr[], int n) { //from : https://www.geeksforgeeks.org/shuffle-an-array-using-stl-in-c/
@@ -18,6 +19,7 @@ Puzzle15::Puzzle15(){
 	// int a=this->Board[14];
  //  	while(this->isgoal()==0)
 	// 	shuffle_array(this->Board,16);
+	//this->get_moves();
 }
 
 Puzzle15& Puzzle15::operator=(const Puzzle15 &L){
@@ -25,6 +27,7 @@ Puzzle15& Puzzle15::operator=(const Puzzle15 &L){
 		return *this;
 	for(int i=0; i<16;i++)
 		this->Board[i]=L.Board[i];
+	//this->get_moves();
 	return *this;
 }
 
@@ -71,6 +74,37 @@ bool Puzzle15::isgoal(){
 		return true;
 	return false;
 }
+
+int Puzzle15::tile_num(){
+	for(int i=0;i<15;i++){
+		if(this->Board[i]==0)
+			return i+1;
+	}
+}
+
+void Puzzle15::shift_up(){
+	int i= this->tile_num();
+	this->Board[i-1]=this->Board[i-5];
+	this->Board[i-5]=0;
+}
+void Puzzle15::shift_down(){
+	int i= this->tile_num();
+	this->Board[i-1]=this->Board[i+3];
+	this->Board[i+3]=0;
+}
+void Puzzle15::shift_left(){
+	int i= this->tile_num();
+	this->Board[i-1]=this->Board[i-2];
+	this->Board[i-2]=0;
+}
+void Puzzle15::shift_right(){
+	int i= this->tile_num();
+	this->Board[i-1]=this->Board[i];
+	this->Board[i]=0;
+}
+
+
+//25 Puzzle member functions
 
 Puzzle25::Puzzle25(){
 	shuffle_array(this->Board,25);
@@ -129,6 +163,104 @@ bool Puzzle25::isgoal(){
 	return false;
 }
 
+
+void Puzzle25::shift_up(){
+	int i= this->tile_num();
+	this->Board[i-1]=this->Board[i-6];
+	this->Board[i-6]=0;
+}
+void Puzzle25::shift_down(){
+	int i= this->tile_num();
+	this->Board[i-1]=this->Board[i+4];
+	this->Board[i+4]=0;
+}
+void Puzzle25::shift_left(){
+	int i= this->tile_num();
+	this->Board[i-1]=this->Board[i-2];
+	this->Board[i-2]=0;
+}
+void Puzzle25::shift_right(){
+	int i= this->tile_num();
+	this->Board[i-1]=this->Board[i];
+	this->Board[i]=0;
+}
+
+int get_row(int x,int s){ //x starts from 1
+	int p=static_cast<int>((x-1)/s);
+	//cout<<"row is :"<<p<<endl;
+	return p;
+}
+
+int get_column(int x,int s){ //x starts from 1
+	int p=0;
+	if (x%s==0){
+		p=s;
+	}
+	else{
+		p=x%s;
+	}
+	//cout<<"col is :"<<p<<endl;
+	return p;
+}
+
+vector<Puzzle15> get_moves(Puzzle15 p){
+	vector<Puzzle15> vect;
+	int num=p.tile_num();
+	//cout<<num<<endl;
+	int x=get_row(num,4)+1;
+	int y=get_column(num,4);
+	if(x>1){
+		Puzzle15 new1=p;
+		new1.shift_up();
+		vect.push_back(new1);
+	}
+	if(x<4){
+		Puzzle15 new1=p;
+		new1.shift_down();
+		vect.push_back(new1);		
+	}
+	if(y<4){
+		Puzzle15 new1=p;
+		new1.shift_right();
+		vect.push_back(new1);	
+	}
+	if(y>1){
+		Puzzle15 new1=p;
+		new1.shift_left();
+		vect.push_back(new1);			
+	}
+	return vect;
+}
+
+vector<Puzzle25> get_moves(Puzzle15 p){
+	vector<Puzzle25> vect;
+	int num=p.tile_num();
+	//cout<<num<<endl;
+	int x=get_row(num,5)+1;
+	int y=get_column(num,5);
+	if(x>1){
+		Puzzle25 new1=p;
+		new1.shift_up();
+		vect.push_back(new1);
+	}
+	if(x<5){
+		Puzzle25 new1=p;
+		new1.shift_down();
+		vect.push_back(new1);		
+	}
+	if(y<5){
+		Puzzle25 new1=p;
+		new1.shift_right();
+		vect.push_back(new1);	
+	}
+	if(y>1){
+		Puzzle25 new1=p;
+		new1.shift_left();
+		vect.push_back(new1);			
+	}
+	return vect;
+}
+
 int main(){
 	Puzzle15 p = Puzzle15();
 	//int a= p.Board[15];
@@ -140,5 +272,10 @@ int main(){
 	cout<<endl;
 	p.print();
 	cout<<p.solvable()<<endl;
+	vector<Puzzle15> vect=get_moves(p);
+	for(int i=0;i<vect.size();i++){
+		vect[i].print();
+	}
+
 	return 0;
 }
