@@ -4,7 +4,7 @@
 PROG = all
 CC = g++
 FLAGS = -g -Wall -c
-OBJS = main.o modules.o h.o p.o
+OBJS = main.o modules.o heuristics.o problem.o
 
 $(PROG) : $(OBJS)
 	$(CC) -o $(PROG) $(OBJS)
@@ -15,11 +15,11 @@ main.o :
 modules.o :
 	$(CC) $(FLAGS) modules.cpp
 
-h.o:
+heuristics.o:
 	$(CC) $(FLAGS) heuristics.cpp
 
-p.o:
-	$(CC) $(FLAGS) puzzle.cpp
+problem.o:
+	$(CC) $(FLAGS) problem.cpp
 
 clean :
 	rm -f $(PROG) $(OBJS)
