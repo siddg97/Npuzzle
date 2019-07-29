@@ -1,29 +1,15 @@
 #include <iostream>
 #include <string>
 #include "modules.h"
+#include "problem.h"
+#include "heuristics.h"
 using namespace std;
 
-Tuple ida_star(Puzzle p){
-	Tnode* root = new Tnode();
+Tuple ida_star(Puzzle15* p, string h) {
 	Stack* path = new Stack();
 	path->push(root);
-	root->setData(p.data);
-	int bound = h(root);
-	while(true){
-		Tuple* t = search(path,0,bound);
-		if(s=="FOUND"){
-			return Tuple(path,bound)
-		}
-		if(t->inf){
-			Tuple* temp = new Tuple();
-			temp->setType("NOT_FOUND");
-			return temp;
-		}
-		bound = t->bound;
+	int bound;
+	if(h=="manhattan"){
+		bound = manhattan
 	}
-}
-
-int main(){
-	
-	return 0;
 }
