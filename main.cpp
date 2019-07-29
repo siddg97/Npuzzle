@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include "modules.h"
+#include "problem.h"
+#include "heuristics.h"
 using namespace std;
 
 Tuple ida_star(Puzzle p){
@@ -12,7 +14,7 @@ Tuple ida_star(Puzzle p){
 	while(true){
 		Tuple* t = search(path,0,bound);
 		if(s=="FOUND"){
-			return Tuple(path,bound)
+			return Tuple(path,bound);
 		}
 		if(t->inf){
 			Tuple* temp = new Tuple();
