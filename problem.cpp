@@ -1,6 +1,7 @@
 #include <iostream>
 #include <random> 
 #include <bits/stdc++.h>
+#include "problem.h"
 using namespace std;
 
 void shuffle_array(int arr[], int n) { //from : https://www.geeksforgeeks.org/shuffle-an-array-using-stl-in-c/
@@ -13,7 +14,7 @@ void shuffle_array(int arr[], int n) { //from : https://www.geeksforgeeks.org/sh
 } 
 
 Puzzle15::Puzzle15(){
-	//shuffle_array(this->Board,16);
+	shuffle_array(this->Board,16);
 	// int a=this->Board[14];
  //  	while(this->isgoal()==0)
 	// 	shuffle_array(this->Board,16);
@@ -131,8 +132,8 @@ bool Puzzle25::isgoal(){
 int main(){
 	Puzzle15 p = Puzzle15();
 	//int a= p.Board[15];
-	p.Board[11]=15;
-	p.Board[14]=12;
+	//p.Board[11]=15;
+	//p.Board[14]=12;
 	for(int i=0; i<16;i++){
 		cout<<" "<<p.Board[i];
 	}
