@@ -123,12 +123,13 @@ Tnode* Stack::getTop(){
 }
 
 void Stack::print_stack(){
-	// Node *t = this->stack->head;
-	// while (t!=NULL){
-	// 	cout << t->tn->p->print() << "\n\n\n";
-	// 	t = t->next;
-	// }
-	// cout << endl;
+	Node *t = this->stack->head;
+	while (t!=NULL){
+		t->tn->p->print();
+		cout << endl << endl << endl;
+		t = t->next;
+	}
+	cout << endl;
 }
 
 //======================[Tnode and Tree Class Implementation]==============================

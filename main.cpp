@@ -72,5 +72,6 @@ Tuple* ida_star15(Puzzle15* p, char c) {
 
 int main(){
 	cout << "I RAN!!!!" << endl;
+	
 	return 0;
 }
