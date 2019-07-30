@@ -4,6 +4,10 @@
 #include "heuristics.h"
 using namespace std;
 
+bool inPath(Tnode* n, Stack* path){
+	return path->stack->search(n);
+}
+
 Tuple* search15(Stack* path,int g,int bound, char c){
 	Tnode* n = path->pop();
 	int f = g;
@@ -14,27 +18,20 @@ Tuple* search15(Stack* path,int g,int bound, char c){
 		f+=euc_sq(n->p->Board,16);
 	}
 	if(f > bound){
-		Tuple* t = new Tuple();
-		t->type="FINDING";
-		t->bound=f;
-		t->path=path;
-		t->inf=false;
+		Tuple* t = new Tuple("FINDING",path,f,false);
 		return t;
 	}
 	if(n->p->isgoal()){
-		Tuple* t = new Tuple();
-		t->type="FOUND";
-		t->bound=bound;
-		t->path=path;
-		t->inf=false;
+		Tuple* t = new Tuple("FOUND",path,bound,false);
 		return t;
 	}
 	Tuple* min = new Tuple();
 	min->inf=true;
-	Tnode* children[] = getChildren(n);
-	for (int i=0; i < length(children); i++){
-		if(!inPath(children[i],path)){
-			path->push(children[i]);
+	vector<Puzzle15> children= get_moves15(*(n->p));
+	for (uint i=0; i < children.size(); i++){
+		Tnode* child = new Tnode(&children[i]);
+		if(!inPath(child,path)){
+			path->push(child);
 			Tuple* t = search15(path,g+1,bound,c);
 			if(t->type=="FOUND"){
 				return t;
@@ -54,7 +51,7 @@ Tuple* ida_star15(Puzzle15* p, char c) {
 	path->push(root);
 	int bound;
 	if(c=='m'){
-		bound = manhattan(root->p->Board,16);
+		bound= manhattan(root->p->Board,16);
 	} 
 	else {
 		bound= euc_sq(root->p->Board,16);
@@ -62,16 +59,18 @@ Tuple* ida_star15(Puzzle15* p, char c) {
 	while(true){
 		Tuple* t = search15(path,0,bound,c);
 		if(t->type=="FOUND"){
-			Tuple* res = new Tuple();
-			res->path= t->path;
-			res->bound= t->bound;
+			Tuple* res = new Tuple("FOUND",t->path,t->bound,false);
 			return res;
 		}
 		if(t->inf){
-			Tuple* res = new Tuple();
-			res->type="NOT_FOUND";
+			Tuple* res = new Tuple("NOT_FOUND",NULL,0,true);
 			return res;
 		}
-		bound = t->bound;
+		bound= t->bound;
 	}
+}
+
+int main(){
+	cout << "I RAN!!!!" << endl;
+	return 0;
 }

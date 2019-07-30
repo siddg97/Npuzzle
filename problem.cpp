@@ -4,6 +4,7 @@
 #include "problem.h"
 #include <vector>
 #include <chrono>
+#include "heuristics.h"
 using namespace std;
 
 void shuffle_array(int arr[], int n) { //from : https://www.geeksforgeeks.org/shuffle-an-array-using-stl-in-c/
@@ -78,6 +79,7 @@ int Puzzle15::tile_num(){
 		if(this->Board[i]==0)
 			return i+1;
 	}
+	return 0;
 }
 
 void Puzzle15::shift_up(){
@@ -165,6 +167,7 @@ int Puzzle25::tile_num(){
 		if(this->Board[i]==0)
 			return i+1;
 	}
+	return 0;
 }
 
 void Puzzle25::shift_up(){
@@ -188,23 +191,23 @@ void Puzzle25::shift_right(){
 	this->Board[i]=0;
 }
 
-int get_row(int x,int s){ //x starts from 1
-	int p=static_cast<int>((x-1)/s);
-	//cout<<"row is :"<<p<<endl;
-	return p;
-}
+// int get_row(int x,int s){ //x starts from 1
+// 	int p=static_cast<int>((x-1)/s);
+// 	//cout<<"row is :"<<p<<endl;
+// 	return p;
+// }
 
-int get_column(int x,int s){ //x starts from 1
-	int p=0;
-	if (x%s==0){
-		p=s;
-	}
-	else{
-		p=x%s;
-	}
-	//cout<<"col is :"<<p<<endl;
-	return p;
-}
+// int get_column(int x,int s){ //x starts from 1
+// 	int p=0;
+// 	if (x%s==0){
+// 		p=s;
+// 	}
+// 	else{
+// 		p=x%s;
+// 	}
+// 	//cout<<"col is :"<<p<<endl;
+// 	return p;
+// }
 
 vector<Puzzle15> get_moves15(Puzzle15 p){
 	vector<Puzzle15> vect;
@@ -264,23 +267,23 @@ vector<Puzzle25> get_moves25(Puzzle25 p){
 	return vect;
 }
 
-int main(){
-	Puzzle15 p = Puzzle15();
-	//int a= p.Board[15];
-	//p.Board[11]=15;
-	//p.Board[14]=12;
-	for(int i=0; i<16;i++){
-		cout<<" "<<p.Board[i];
-	}
-	cout<<p.solvable()<<endl;
-	cout<<endl;
-	p.print();
-	//cout<<p.solvable()<<endl;
-	vector<Puzzle15> vect=get_moves15(p);
-	for(int i=0;i<vect.size();i++){
-		vect[i].print();
-		cout<<endl;
-	}
+// int main(){
+// 	Puzzle15 p = Puzzle15();
+// 	//int a= p.Board[15];
+// 	//p.Board[11]=15;
+// 	//p.Board[14]=12;
+// 	for(int i=0; i<16;i++){
+// 		cout<<" "<<p.Board[i];
+// 	}
+// 	cout<<p.solvable()<<endl;
+// 	cout<<endl;
+// 	p.print();
+// 	//cout<<p.solvable()<<endl;
+// 	vector<Puzzle15> vect=get_moves15(p);
+// 	for(int i=0;i<vect.size();i++){
+// 		vect[i].print();
+// 		cout<<endl;
+// 	}
 
-	return 0;
-}
+// 	return 0;
+// }
