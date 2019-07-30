@@ -3,11 +3,12 @@
 #include <bits/stdc++.h>
 #include "problem.h"
 #include <vector>
+#include <chrono>
 using namespace std;
 
 void shuffle_array(int arr[], int n) { //from : https://www.geeksforgeeks.org/shuffle-an-array-using-stl-in-c/
     // To obtain a time-based seed 
-    unsigned seed = 0; 
+    unsigned seed = chrono::system_clock::now().time_since_epoch().count(); 
   
     // Shuffling our array 
     shuffle(arr, arr + n, 
@@ -16,10 +17,8 @@ void shuffle_array(int arr[], int n) { //from : https://www.geeksforgeeks.org/sh
 
 Puzzle15::Puzzle15(){
 	shuffle_array(this->Board,16);
-	// int a=this->Board[14];
- //  	while(this->isgoal()==0)
-	// 	shuffle_array(this->Board,16);
-	//this->get_moves();
+  	while(this->solvable()==0)
+		shuffle_array(this->Board,16);
 }
 
 Puzzle15& Puzzle15::operator=(const Puzzle15 &L){
@@ -27,7 +26,6 @@ Puzzle15& Puzzle15::operator=(const Puzzle15 &L){
 		return *this;
 	for(int i=0; i<16;i++)
 		this->Board[i]=L.Board[i];
-	//this->get_moves();
 	return *this;
 }
 
@@ -108,9 +106,8 @@ void Puzzle15::shift_right(){
 
 Puzzle25::Puzzle25(){
 	shuffle_array(this->Board,25);
-	// int a=this->Board[14];
- //  	while(this->isgoal()==0)
-	// 	shuffle_array(this->Board,16);
+  	while(this->solvable()==0)
+		shuffle_array(this->Board,25);
 }
 
 Puzzle25& Puzzle25::operator=(const Puzzle25 &L){
@@ -268,17 +265,18 @@ vector<Puzzle25> get_moves25(Puzzle25 p){
 }
 
 int main(){
-	Puzzle25 p = Puzzle25();
+	Puzzle15 p = Puzzle15();
 	//int a= p.Board[15];
 	//p.Board[11]=15;
 	//p.Board[14]=12;
-	for(int i=0; i<25;i++){
+	for(int i=0; i<16;i++){
 		cout<<" "<<p.Board[i];
 	}
+	cout<<p.solvable()<<endl;
 	cout<<endl;
 	p.print();
 	//cout<<p.solvable()<<endl;
-	vector<Puzzle25> vect=get_moves25(p);
+	vector<Puzzle15> vect=get_moves15(p);
 	for(int i=0;i<vect.size();i++){
 		vect[i].print();
 		cout<<endl;
