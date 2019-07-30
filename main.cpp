@@ -63,8 +63,8 @@ Tuple* ida_star15(Puzzle15* p, char c) {
 		Tuple* t = search15(path,0,bound,c);
 		if(t->type=="FOUND"){
 			Tuple* res = new Tuple();
-			res->setPath(t->path);
-			res->setBound(t->bound);
+			res->path= t->path;
+			res->bound= t->bound;
 			return res;
 		}
 		if(t->inf){
