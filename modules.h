@@ -1,3 +1,6 @@
+#ifndef MODULES_H
+#define MODULES_H
+
 #include <string>
 #include "problem.h"
 using namespace std;
@@ -6,10 +9,8 @@ class Tnode{
 public:
 	Puzzle15* p;
 	Tnode(Puzzle15* p);
-	~Tnode();
+	bool operator==(const Tnode &n);
 };
-
-int length(Tnode* arr[]);
 
 class Node{
 public:
@@ -31,6 +32,7 @@ public:
 	void deleteHead();
 	Tnode* getTail();		// !!!! Assumes that ll is not empty !!!!
 	Tnode* getHead();		// !!!! Assumes that ll is not empty !!!!
+	bool search(Tnode* tn);
 };
 
 class Stack {
@@ -54,3 +56,5 @@ public:
 	Tuple(string type,Stack* path, int bound, bool inf);
 	~Tuple();
 };
+
+#endif

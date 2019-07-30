@@ -76,11 +76,17 @@ Tnode* Llist::getHead(){
 	return this->head->tn;
 }
 
-//======================[length() function Implementation]==============================
-
-int length(Tnode*s arr[]){
-	return (sizeof(arr)/sizeof(arr[0]))
+bool Llist::search(Tnode* tn){
+	Node* temph= this->head;
+	while(temph != NULL){
+		if(tn == temph->tn){
+			return true;
+		}
+		temph = temph->next;
+	}
+	return false;
 }
+
 
 //======================[STACK Class Implementation]==============================
 
@@ -98,7 +104,7 @@ void Stack::push(Tnode* tn){
 
 Tnode* Stack::pop(){
 	if(!this->stack->isEmpty()){
-		int poped = this->stack->getHead();
+		Tnode* poped = this->stack->getHead();
 		this->stack->deleteHead();
 		return poped;
 	}
@@ -109,7 +115,7 @@ Tnode* Stack::pop(){
 
 Tnode* Stack::getTop(){
 	if(!this->stack->isEmpty()){
-		return this->Stack->getHead();
+		return this->stack->getHead();
 	}
 	else {
 		return NULL;
@@ -119,7 +125,8 @@ Tnode* Stack::getTop(){
 void Stack::print_stack(){
 	Node *t = this->stack->head;
 	while (t!=NULL){
-		cout << t->data << " ";
+		t->tn->p->print();
+		cout << endl << endl << endl;
 		t = t->next;
 	}
 	cout << endl;
@@ -131,8 +138,8 @@ Tnode::Tnode(Puzzle15* p){
 	this->p = p;
 }
 
-Tnode::~Tnode(){
-	this->parent = NULL;
+bool operator==(const Tnode &n1,const Tnode &n2){
+	return (n1.p == n2.p);
 }
 
 //======================[Tuple Class Implementation]==============================
@@ -141,7 +148,7 @@ Tuple::Tuple(){
 	this->path=NULL;
 	this->bound=0;
 	this->type = "";
-	bool inf = false;
+	this->inf = false;
 }
 
 Tuple::Tuple(string type, Stack* path, int bound, bool inf){
