@@ -25,6 +25,7 @@ public:
 	void print();
 	bool solvable();
 	bool isgoal();
+	int tile_num();	
 	void shift_up();
 	void shift_down();
 	void shift_left();

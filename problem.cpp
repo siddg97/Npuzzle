@@ -76,7 +76,7 @@ bool Puzzle15::isgoal(){
 }
 
 int Puzzle15::tile_num(){
-	for(int i=0;i<15;i++){
+	for(int i=0;i<16;i++){
 		if(this->Board[i]==0)
 			return i+1;
 	}
@@ -163,6 +163,12 @@ bool Puzzle25::isgoal(){
 	return false;
 }
 
+int Puzzle25::tile_num(){
+	for(int i=0;i<25;i++){
+		if(this->Board[i]==0)
+			return i+1;
+	}
+}
 
 void Puzzle25::shift_up(){
 	int i= this->tile_num();
@@ -203,7 +209,7 @@ int get_column(int x,int s){ //x starts from 1
 	return p;
 }
 
-vector<Puzzle15> get_moves(Puzzle15 p){
+vector<Puzzle15> get_moves15(Puzzle15 p){
 	vector<Puzzle15> vect;
 	int num=p.tile_num();
 	//cout<<num<<endl;
@@ -232,7 +238,7 @@ vector<Puzzle15> get_moves(Puzzle15 p){
 	return vect;
 }
 
-vector<Puzzle25> get_moves(Puzzle15 p){
+vector<Puzzle25> get_moves25(Puzzle25 p){
 	vector<Puzzle25> vect;
 	int num=p.tile_num();
 	//cout<<num<<endl;
@@ -262,19 +268,20 @@ vector<Puzzle25> get_moves(Puzzle15 p){
 }
 
 int main(){
-	Puzzle15 p = Puzzle15();
+	Puzzle25 p = Puzzle25();
 	//int a= p.Board[15];
 	//p.Board[11]=15;
 	//p.Board[14]=12;
-	for(int i=0; i<16;i++){
+	for(int i=0; i<25;i++){
 		cout<<" "<<p.Board[i];
 	}
 	cout<<endl;
 	p.print();
-	cout<<p.solvable()<<endl;
-	vector<Puzzle15> vect=get_moves(p);
+	//cout<<p.solvable()<<endl;
+	vector<Puzzle25> vect=get_moves25(p);
 	for(int i=0;i<vect.size();i++){
 		vect[i].print();
+		cout<<endl;
 	}
 
 	return 0;
