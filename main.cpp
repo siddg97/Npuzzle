@@ -12,7 +12,11 @@ Tuple* search15(Stack* path,int g,int bound, char c){
 	Tnode* n = path->pop();
 	int f = g;
 	if (c=='m'){
-		f+=manhattan(n->p->Board,16);
+		int temp[16];
+		for(int i=0;i<16;i++)
+			temp[i]=n->p->Board[i];
+		// int temp[16]= *(n->p->Board);
+		f+=manhattan(temp,16);
 	}
 	else{
 		f+=euc_sq(n->p->Board,16);
@@ -71,7 +75,11 @@ Tuple* ida_star15(Puzzle15* p, char c) {
 }
 
 int main(){
-	cout << "I RAN!!!!" << endl;
-	
+	Puzzle15* p= new Puzzle15();
+	p->print();
+	Tuple* res = ida_star15(p,'m');
+	res->path->print_stack();
+	cout << endl;
+	cout << "COST/STEPS TAKEN= " << res->bound << endl;
 	return 0;
 }

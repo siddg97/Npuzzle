@@ -21,9 +21,9 @@ int get_column(int x,int s){ //x starts from 1
 	return p;
 }
 
-int manhattan(int *board,int s){
+int manhattan(int board[],int s){
 	int n=sqrt(s);
-	cout<<n<<endl;
+	// cout<<n<<endl;
 	int m=0;//manhattan sum
 	for(int i =0;i<s;i++){
 		if(board[i]==0){
