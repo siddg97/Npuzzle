@@ -35,7 +35,7 @@ Tuple* search15(Stack* path,int g,int bound, char c){
 	for (int i=0; i < length(children); i++){
 		if(!inPath(children[i],path)){
 			path->push(children[i]);
-			Tuple* t = search15(path,g+cost(n,children[i]),bound);
+			Tuple* t = search15(path,g+1,bound,c);
 			if(t->type=="FOUND"){
 				return t;
 			}
