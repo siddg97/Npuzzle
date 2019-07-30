@@ -281,6 +281,6 @@ int main(){
 		vect[i].print();
 		cout<<endl;
 	}
-
+	p.print();
 	return 0;
 }
