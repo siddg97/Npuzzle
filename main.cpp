@@ -1,85 +1,71 @@
 #include <iostream>
 #include <string>
+#include <bits/stdc++.h>
 #include "modules.h"
 #include "heuristics.h"
 using namespace std;
 
-bool inPath(Tnode* n, Stack* path){
-	return path->stack->search(n);
+bool in_path(vector<Node> p, Node n){
+	std::vector<Node>::iterator it;
+	it = std::find (p.begin(), p.end(), n);
+	return (it!=p.end());
 }
 
-Tuple* search15(Stack* path,int g,int bound, char c){
-	Tnode* n = path->pop();
-	int f = g;
-	if (c=='m'){
-		int temp[16];
-		for(int i=0;i<16;i++)
-			temp[i]=n->p->Board[i];
-		// int temp[16]= *(n->p->Board);
-		f+=manhattan(temp,16);
+string search15(vector<Node> p, int g, int bound){
+	cout << "In search15()..." << endl;
+	Node n= p.front();
+	int f = g + manhattan(n.p.Board,16);
+	if(f > bound)
+		return to_string(f);
+	if(n.p.isgoal()){
+		return "FOUND";
 	}
-	else{
-		f+=euc_sq(n->p->Board,16);
-	}
-	if(f > bound){
-		Tuple* t = new Tuple("FINDING",path,f,false);
-		return t;
-	}
-	if(n->p->isgoal()){
-		Tuple* t = new Tuple("FOUND",path,bound,false);
-		return t;
-	}
-	Tuple* min = new Tuple();
-	min->inf=true;
-	vector<Puzzle15> children= get_moves15(*(n->p));
-	for (uint i=0; i < children.size(); i++){
-		Tnode* child = new Tnode(&children[i]);
-		if(!inPath(child,path)){
-			path->push(child);
-			Tuple* t = search15(path,g+1,bound,c);
-			if(t->type=="FOUND"){
-				return t;
-			}
-			if(!t->inf){
+	string min= "INF";
+	vector<Puzzle15> succs= get_moves15(n.p);
+	for(uint i=0;i<succs.size();i++){
+		Node c= Node(succs[i]);
+		if(!in_path(p,c)){
+			p.push_back(c);
+			string t = search15(p,g+1,bound);
+			if(t=="FOUND")
+				return "FOUND";
+			if(t!="INF")
 				min = t;
-			}
-			path->pop();
+			p.pop_back();
 		}
 	}
 	return min;
 }
 
-Tuple* ida_star15(Puzzle15* p, char c) {
-	Tnode* root = new Tnode(p);
-	Stack* path = new Stack();
-	path->push(root);
-	int bound;
-	if(c=='m'){
-		bound= manhattan(root->p->Board,16);
-	} 
-	else {
-		bound= euc_sq(root->p->Board,16);
-	}
+
+Sol ida_star15(Puzzle15 puzz){
+	Node root= Node(puzz);
+	int bound= manhattan(puzz.Board,16);
+	cout << "BOUND= " << bound << endl;
+	std::vector<Node> path;
+	path.push_back(root);
 	while(true){
-		Tuple* t = search15(path,0,bound,c);
-		if(t->type=="FOUND"){
-			Tuple* res = new Tuple("FOUND",t->path,t->bound,false);
+		cout << "In ida_star15()..." << endl;
+		string t= search15(path,0,bound);
+		if(t=="FOUND"){
+			Sol res= Sol("FOUND",path,bound);
 			return res;
 		}
-		if(t->inf){
-			Tuple* res = new Tuple("NOT_FOUND",NULL,0,true);
+		if(t=="INF"){
+			Sol res= Sol("NOT_FOUND",path,bound);
 			return res;
 		}
-		bound= t->bound;
+		bound= stoi(t);
 	}
 }
 
 int main(){
-	Puzzle15* p= new Puzzle15();
+	Puzzle15* p = new Puzzle15();
 	p->print();
-	Tuple* res = ida_star15(p,'m');
-	res->path->print_stack();
-	cout << endl;
-	cout << "COST/STEPS TAKEN= " << res->bound << endl;
+	Sol s = ida_star15(*p);
+	cout << "RESULT= " << s.s << " | COST= " << s.bound << endl;
+	for(uint i=0;i<s.p.size();i++){
+		s.p[i].p.print();
+	}
 	return 0;
 }

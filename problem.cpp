@@ -52,6 +52,7 @@ void Puzzle15::print(){
 		}
 		cout<<endl;
 	}
+	cout << endl;
 }
 
 bool Puzzle15::solvable(){
@@ -61,7 +62,7 @@ bool Puzzle15::solvable(){
              if(this->Board[i]>this->Board[j] && this->Board[i]!=0 &&this->Board[j]!=0) 
                  count++;
     }
-    cout<<count<<endl;
+    // cout<<count<<endl;
     return (count%2+1)%2;
     //return count%2;
 }
