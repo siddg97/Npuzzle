@@ -17,7 +17,7 @@ public:
 class Sol{
 public:
 	string s;
-	vector<Node> path;
+	vector<Node> p;
 	int bound;
 	Sol(string s,vector<Node> p, int b);
 };
