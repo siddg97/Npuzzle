@@ -151,11 +151,17 @@ Tuple::Tuple(){
 	this->inf = false;
 }
 
+
 Tuple::Tuple(string type, Stack* path, int bound, bool inf){
 	this->type = type;
 	this->bound = bound;
 	this->path = path;
 	this->inf = inf;
+}
+
+Tuple::Tuple(Tuple* t){
+	Tuple* deepcopy = new Tuple(t->type,t->path,t->bound,t->inf);
+	*this = *deepcopy;
 }
 
 Tuple::~Tuple(){

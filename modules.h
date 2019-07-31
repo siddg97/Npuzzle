@@ -53,6 +53,7 @@ public:
 	int bound;
 	bool inf;
 	Tuple();
+	Tuple(Tuple* t);
 	Tuple(string type,Stack* path, int bound, bool inf);
 	~Tuple();
 };
