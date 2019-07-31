@@ -63,7 +63,7 @@ int main(){
 	Puzzle15* p = new Puzzle15();
 	p->print();
 	Sol s = ida_star15(*p);
-	cout << "RESULT= " << s.s << "COST= " << s.bound << endl;
+	cout << "RESULT= " << s.s << " | COST= " << s.bound << endl;
 	for(uint i=0;i<s.p.size();i++){
 		s.p[i].p.print();
 	}
