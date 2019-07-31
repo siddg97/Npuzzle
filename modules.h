@@ -1,60 +1,24 @@
 #ifndef MODULES_H
 #define MODULES_H
 
+#include <stack>
 #include <string>
+#include <vector>
 #include "problem.h"
 using namespace std;
 
-class Tnode{
+class Node {
 public:
-	Puzzle15* p;
-	Tnode(Puzzle15* p);
-	bool operator==(const Tnode &n);
+	Puzzle15 p;
+	Node(Puzzle15 p);
+	bool operator==(const Node &n);
 };
 
-class Node{
+class Sol{
 public:
-	Tnode* tn;
-	Node* next;
-	Node(Tnode* tn, Node* next);
-	Node();
-};
-
-class Llist{
-public:
-	int items;
-	Node* head;
-	Llist();
-	bool isEmpty();
-	~Llist();
-	void insertHead(Tnode* tn);
-	void insertTail(Tnode* tn);
-	void deleteHead();
-	Tnode* getTail();		// !!!! Assumes that ll is not empty !!!!
-	Tnode* getHead();		// !!!! Assumes that ll is not empty !!!!
-	bool search(Tnode* tn);
-};
-
-class Stack {
-public:
-	Llist* stack;
-	Stack();
-	~Stack();
-	void push(Tnode* tn);
-	Tnode* pop();		// returns NULL if stack is empty
-	Tnode* getTop();	// returns NULL if stack is empty
-	void print_stack();
-};
-
-class Tuple {
-public:
-	string type;
-	Stack* path;
+	string s;
+	vector<Node> path;
 	int bound;
-	bool inf;
-	Tuple();
-	Tuple(string type,Stack* path, int bound, bool inf);
-	~Tuple();
+	Sol(string s,vector<Node> p, int b);
 };
-
 #endif
