@@ -1,6 +1,7 @@
 #include <iostream>
 #include <random> 
 #include <math.h>
+#include "heuristics.h"
 using namespace std;
 
 int get_row(int x,int s){ //x starts from 1
@@ -40,7 +41,7 @@ int manhattan(int board[],int s){
 	return m;
 }
 
-int euc_sq(int *board,int s){
+float euc_sq(int *board,int s){
 	int n=sqrt(s);
 	int e=0;//euclidean sum
 	for(int i =0;i<s;i++){
@@ -49,12 +50,15 @@ int euc_sq(int *board,int s){
 		else
 			e+=pow(get_column(i+1,n)-get_column(board[i],n),2)+pow(get_row(i+1,n)-get_row(board[i],n),2);
 	}
+	//cout<<e<<endl;
 	float sq_e=sqrt(e);
 	return sq_e;
 }
 
-int max(int *board, int s){
-	return max(manhattan(board,s),euc_sq(board,s));
+int max_h(int *board, int s){
+	if(manhattan(board,s)>=euc_sq(board,s))
+		return manhattan(board,s);
+	return static_cast<int>(euc_sq(board,s));
 }
 
 // int main(){
