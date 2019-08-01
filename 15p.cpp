@@ -251,9 +251,9 @@ int* toInt(char * c , int s){
 
 bool solvable(char * c){
 	int *board=toInt(c,16);
-	for(int i=0;i<16;i++)
-		cout<<board[i]<<" ";
-	cout<<endl;
+	// for(int i=0;i<16;i++)
+	// 	cout<<board[i]<<" ";
+	// cout<<endl;
 	int count=0;
 	for(int i=0;i<15;i++){ 
         for (int j=i+1;j<16;j++)
@@ -271,14 +271,20 @@ int main(){
 	MakeMDTable(size);
 	MakeMovableTable(size);
 	Size = size;
-	shuffle_array(puzzle,16);
-	while(!solvable(puzzle)){
+	for(uint i=0;i<10;i++){
+		cout << "ITERATION #" << i+1 << endl << "======================" << endl;
 		shuffle_array(puzzle,16);
+		while(!solvable(puzzle)){
+			shuffle_array(puzzle,16);
+		}
+		cout << "  PUZZLE TO SOLVE  \n--------------------" << endl << endl;
+		PrintPuzzle(puzzle);
+		cout << "--------------------" << endl << endl;
+		// cout<<solvable(puzzle)<<endl;
+		printf("\n===== IDA Star Algiorithm =====\n");
+		IDAStar(puzzle);
+		cout << "======================" << endl << endl;
 	}
-	PrintPuzzle(puzzle);
-	cout<<solvable(puzzle)<<endl;
-	printf("\n===== IDA Star Algiorithm =====\n");
-	IDAStar(puzzle);
 
 	return 0;
 }
