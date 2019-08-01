@@ -231,14 +231,14 @@ void IDAStar(char* puzzle){
 	}
 }
 
-void shuffle_array(char arr[], int n) { //from : https://www.geeksforgeeks.org/shuffle-an-array-using-stl-in-c/
+void ShuffleArray(char arr[], int n) { //from : https://www.geeksforgeeks.org/shuffle-an-array-using-stl-in-c/
     // To obtain a time-based seed 
     unsigned seed = chrono::system_clock::now().time_since_epoch().count(); 
     // Shuffling our array 
     shuffle(arr, arr + n, default_random_engine(seed)); 
 }
 
-int* toInt(char * c , int s){
+int* ToIntArr(char * c , int s){
  	int *board=new int[s];
 	for(int i=0;i<s;i++){
 		int a=(int) c[i];
@@ -248,7 +248,7 @@ int* toInt(char * c , int s){
 } 
 
 bool solvable(char * c){
-	int *board=toInt(c,16);
+	int *board=ToIntArr(c,16);
 	// for(int i=0;i<16;i++)
 	// 	cout<<board[i]<<" ";
 	// cout<<endl;
@@ -269,9 +269,9 @@ int main(){
 	MakeMDTable(size);
 	MakeMovableTable(size);
 	Size = size;
-	shuffle_array(puzzle,16);
+	ShuffleArray(puzzle,16);
 	while(!solvable(puzzle)){
-		shuffle_array(puzzle,16);
+		ShuffleArray(puzzle,16);
 	}
 	cout << "  PUZZLE TO SOLVE  \n--------------------" << endl << endl;
 	PrintPuzzle(puzzle);
