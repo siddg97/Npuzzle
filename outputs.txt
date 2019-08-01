@@ -244,3 +244,240 @@ Depth = 49, Node Count =      97649, Total Count =     112719, time =  32.09 mse
 Depth = 51, Node Count =     700296, Total Count =     813015, time = 198.88 msecs
 Depth = 53, Node Count =    2172687, Total Count =    2985702, time = 711.43 msecs
 Total Node Count = 2985702, shortest path length = 53, time = 711.43 msecs
+
+[11]
+  PUZZLE TO SOLVE  
+--------------------
+
+ 2  6 11 12 
+ 3  0 14 10 
+ 1  9  4 13 
+ 7  5  8 15 
+
+--------------------
+
+
+===== IDA Star Algiorithm =====
+Depth = 36, Node Count =         40, Total Count =         40, time =   0.05 msecs
+Depth = 38, Node Count =        195, Total Count =        235, time =   0.30 msecs
+Depth = 40, Node Count =       1188, Total Count =       1423, time =   1.69 msecs
+Depth = 42, Node Count =       7810, Total Count =       9233, time =   4.72 msecs
+Depth = 44, Node Count =      52142, Total Count =      61375, time =  23.81 msecs
+Depth = 46, Node Count =     262727, Total Count =     324102, time = 101.48 msecs
+Total Node Count = 324102, shortest path length = 46, time = 101.48 msecs
+
+[12]
+clara@clara-Lenovo-YOGA-920-13IKB:~/Documents/GitHub/Npuzzle$ ./a.out
+  PUZZLE TO SOLVE  
+--------------------
+
+ 4  9 10  3 
+ 2  5 11 14 
+ 6  8 12  7 
+15 13  0  1 
+
+--------------------
+
+
+===== IDA Star Algiorithm =====
+Depth = 39, Node Count =          5, Total Count =          5, time =   0.01 msecs
+Depth = 41, Node Count =         70, Total Count =         75, time =   0.11 msecs
+Depth = 43, Node Count =        777, Total Count =        852, time =   1.01 msecs
+Depth = 45, Node Count =       7254, Total Count =       8106, time =   4.07 msecs
+Depth = 47, Node Count =      67986, Total Count =      76092, time =  29.34 msecs
+Depth = 49, Node Count =     529002, Total Count =     605094, time = 172.65 msecs
+Depth = 51, Node Count =    3677460, Total Count =    4282554, time = 1118.89 msecs
+Depth = 53, Node Count =    3070944, Total Count =    7353498, time = 1889.80 msecs
+Total Node Count = 7353498, shortest path length = 53, time = 1889.80 msecs
+
+[13]
+clara@clara-Lenovo-YOGA-920-13IKB:~/Documents/GitHub/Npuzzle$ ./a.out
+  PUZZLE TO SOLVE  
+--------------------
+
+ 6 13  5  8 
+ 4 10 14 11 
+ 1  3  7  2 
+12  9 15  0 
+
+--------------------
+
+
+===== IDA Star Algiorithm =====
+Depth = 36, Node Count =          3, Total Count =          3, time =   0.01 msecs
+Depth = 38, Node Count =         10, Total Count =         13, time =   0.04 msecs
+Depth = 40, Node Count =        102, Total Count =        115, time =   0.17 msecs
+Depth = 42, Node Count =        778, Total Count =        893, time =   0.96 msecs
+Depth = 44, Node Count =       6416, Total Count =       7309, time =   3.99 msecs
+Depth = 46, Node Count =      45269, Total Count =      52578, time =  20.59 msecs
+Depth = 48, Node Count =     304522, Total Count =     357100, time = 105.92 msecs
+Depth = 50, Node Count =    1917221, Total Count =    2274321, time = 589.45 msecs
+Depth = 52, Node Count =    4720542, Total Count =    6994863, time = 1765.14 msecs
+Total Node Count = 6994863, shortest path length = 52, time = 1765.14 msecs
+
+[14]
+clara@clara-Lenovo-YOGA-920-13IKB:~/Documents/GitHub/Npuzzle$ ./a.out
+  PUZZLE TO SOLVE  
+--------------------
+
+ 3  7  5  1 
+11  0 12 10 
+ 2 15 13 14 
+ 4  6  9  8 
+
+--------------------
+
+
+===== IDA Star Algiorithm =====
+Depth = 44, Node Count =         17, Total Count =         17, time =   0.02 msecs
+Depth = 46, Node Count =        618, Total Count =        635, time =   0.65 msecs
+Depth = 48, Node Count =       6330, Total Count =       6965, time =   3.75 msecs
+Depth = 50, Node Count =      55017, Total Count =      61982, time =  24.02 msecs
+Depth = 52, Node Count =     418527, Total Count =     480509, time = 139.28 msecs
+Depth = 54, Node Count =    2917271, Total Count =    3397780, time = 866.25 msecs
+Depth = 56, Node Count =    3525031, Total Count =    6922811, time = 1748.84 msecs
+Total Node Count = 6922811, shortest path length = 56, time = 1748.84 msecs
+
+[15]
+clara@clara-Lenovo-YOGA-920-13IKB:~/Documents/GitHub/Npuzzle$ ./a.out
+  PUZZLE TO SOLVE  
+--------------------
+
+11  1 15 14 
+10  4  0 12 
+ 6  9  7  8 
+ 2  3  5 13 
+
+--------------------
+
+
+===== IDA Star Algiorithm =====
+Depth = 43, Node Count =        204, Total Count =        204, time =   0.22 msecs
+Depth = 45, Node Count =       1709, Total Count =       1913, time =   1.74 msecs
+Depth = 47, Node Count =      12217, Total Count =      14130, time =   6.39 msecs
+Depth = 49, Node Count =      84340, Total Count =      98470, time =  35.13 msecs
+Depth = 51, Node Count =     548163, Total Count =     646633, time = 178.31 msecs
+Depth = 53, Node Count =    3426827, Total Count =    4073460, time = 1022.63 msecs
+Depth = 55, Node Count =    1384685, Total Count =    5458145, time = 1364.51 msecs
+Total Node Count = 5458145, shortest path length = 55, time = 1364.51 msecs
+
+[16]
+clara@clara-Lenovo-YOGA-920-13IKB:~/Documents/GitHub/Npuzzle$ ./a.out
+  PUZZLE TO SOLVE  
+--------------------
+
+12 13  5  7 
+ 6  3  8 11 
+ 1  9 15 14 
+ 4 10  0  2 
+
+--------------------
+
+
+===== IDA Star Algiorithm =====
+Depth = 39, Node Count =         69, Total Count =         69, time =   0.08 msecs
+Depth = 41, Node Count =        434, Total Count =        503, time =   0.55 msecs
+Depth = 43, Node Count =       2500, Total Count =       3003, time =   3.16 msecs
+Depth = 45, Node Count =      14265, Total Count =      17268, time =  16.93 msecs
+Depth = 47, Node Count =      80454, Total Count =      97722, time =  44.16 msecs
+Depth = 49, Node Count =     451874, Total Count =     549596, time = 165.79 msecs
+Depth = 51, Node Count =    2522100, Total Count =    3071696, time = 834.83 msecs
+Depth = 53, Node Count =   13920531, Total Count =   16992227, time = 4369.69 msecs
+Depth = 55, Node Count =    1135159, Total Count =   18127386, time = 4652.09 msecs
+Total Node Count = 18127386, shortest path length = 55, time = 4652.09 msecs
+
+[17]
+clara@clara-Lenovo-YOGA-920-13IKB:~/Documents/GitHub/Npuzzle$ ./a.out
+  PUZZLE TO SOLVE  
+--------------------
+
+ 7  9  2  8 
+ 0 15 13  1 
+ 4  3  6 14 
+12 11  5 10 
+
+--------------------
+
+
+===== IDA Star Algiorithm =====
+Depth = 45, Node Count =         12, Total Count =         12, time =   0.02 msecs
+Depth = 47, Node Count =        859, Total Count =        871, time =   0.96 msecs
+Depth = 49, Node Count =      13137, Total Count =      14008, time =   6.24 msecs
+Depth = 51, Node Count =     123184, Total Count =     137192, time =  45.04 msecs
+Depth = 53, Node Count =     931984, Total Count =    1069176, time = 276.34 msecs
+Depth = 55, Node Count =     208274, Total Count =    1277450, time = 328.00 msecs
+Total Node Count = 1277450, shortest path length = 55, time = 328.00 msecs
+
+[18]
+clara@clara-Lenovo-YOGA-920-13IKB:~/Documents/GitHub/Npuzzle$ ./a.out
+  PUZZLE TO SOLVE  
+--------------------
+
+ 6  2  3  4 
+ 5  8  1  0 
+10 14 11  9 
+ 7 13 12 15 
+
+--------------------
+
+
+===== IDA Star Algiorithm =====
+Depth = 24, Node Count =         12, Total Count =         12, time =   0.02 msecs
+Depth = 26, Node Count =         54, Total Count =         66, time =   0.12 msecs
+Depth = 28, Node Count =        245, Total Count =        311, time =   0.44 msecs
+Depth = 30, Node Count =        874, Total Count =       1185, time =   1.53 msecs
+Depth = 32, Node Count =       4054, Total Count =       5239, time =   6.49 msecs
+Depth = 34, Node Count =      17568, Total Count =      22807, time =  17.22 msecs
+Depth = 36, Node Count =      74235, Total Count =      97042, time =  43.71 msecs
+Depth = 38, Node Count =     325865, Total Count =     422907, time = 138.43 msecs
+Depth = 40, Node Count =     749919, Total Count =    1172826, time = 334.87 msecs
+Total Node Count = 1172826, shortest path length = 40, time = 334.87 msecs
+
+[19]
+clara@clara-Lenovo-YOGA-920-13IKB:~/Documents/GitHub/Npuzzle$ ./a.out
+  PUZZLE TO SOLVE  
+--------------------
+
+ 3  8  7  2 
+ 0 14  4  5 
+13 15 11  6 
+ 9 12 10  1 
+
+--------------------
+
+
+===== IDA Star Algiorithm =====
+Depth = 37, Node Count =          5, Total Count =          5, time =   0.01 msecs
+Depth = 39, Node Count =         13, Total Count =         18, time =   0.04 msecs
+Depth = 41, Node Count =         67, Total Count =         85, time =   0.13 msecs
+Depth = 43, Node Count =        502, Total Count =        587, time =   0.69 msecs
+Depth = 45, Node Count =       4145, Total Count =       4732, time =   2.65 msecs
+Depth = 47, Node Count =      29885, Total Count =      34617, time =  14.66 msecs
+Depth = 49, Node Count =     208431, Total Count =     243048, time =  78.22 msecs
+Depth = 51, Node Count =    1396313, Total Count =    1639361, time = 428.82 msecs
+Depth = 53, Node Count =     256774, Total Count =    1896135, time = 494.59 msecs
+Total Node Count = 1896135, shortest path length = 53, time = 494.59 msecs
+
+[20]
+clara@clara-Lenovo-YOGA-920-13IKB:~/Documents/GitHub/Npuzzle$ ./a.out
+  PUZZLE TO SOLVE  
+--------------------
+
+ 8 11  3 14 
+ 1  0  7 12 
+15  6 10  9 
+ 5  2 13  4 
+
+--------------------
+
+
+===== IDA Star Algiorithm =====
+Depth = 38, Node Count =         71, Total Count =         71, time =   0.09 msecs
+Depth = 40, Node Count =        533, Total Count =        604, time =   0.73 msecs
+Depth = 42, Node Count =       3103, Total Count =       3707, time =   2.47 msecs
+Depth = 44, Node Count =      18367, Total Count =      22074, time =  10.39 msecs
+Depth = 46, Node Count =     107971, Total Count =     130045, time =  47.56 msecs
+Depth = 48, Node Count =     623739, Total Count =     753784, time = 213.93 msecs
+Depth = 50, Node Count =    3139590, Total Count =    3893374, time = 1007.22 msecs
+Total Node Count = 3893374, shortest path length = 50, time = 1007.22 msecs
+
