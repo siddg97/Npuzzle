@@ -67,14 +67,11 @@ void MakeDirections(){
 void MakeMovableTable(int size){
 	int moves[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 	int board[5][5];
-	
 	for(int y = 0; y < size; ++y){
 		for(int x = 0; x < size; ++x){
 			board[y][x] = x + y * size;
 		}
 	}
-	
-	
 	int dx, dy, j;
 	for(int y = 0; y < size; ++y){
 		for(int x = 0; x < size; ++x){
@@ -93,8 +90,7 @@ void MakeMovableTable(int size){
 	}
 }
 
-void MakeMDTable(int size)
-{
+void MakeMDTable(int size){
 	for(int y = 0, i = 1; y < size * size; ++y, (++i) % (size * size)){
 		for(int x = 0; x < size * size; ++x){
 			if(i == 0){
@@ -263,6 +259,30 @@ void shuffle_array(char arr[], int n) { //from : https://www.geeksforgeeks.org/s
     shuffle(arr, arr + n, default_random_engine(seed)); 
 }
 
+int* toInt(char * c , int s){
+ 	int *board=new int[s];
+	for(int i=0;i<s;i++){
+		int a=(int) c[i];
+		board[i]=a;
+	}
+	return board;
+} 
+
+bool solvable(char * c){
+	int *board=toInt(c,25);
+	// for(int i=0;i<16;i++)
+	// 	cout<<board[i]<<" ";
+	// cout<<endl;
+	int count=0;
+	for(int i=0;i<24;i++){ 
+        for (int j=i+1;j<25;j++)
+             if(board[i]>board[j] && board[i]!=0 &&board[j]!=0){ 
+                 count++;
+             }
+    }
+    return (count%2+1)%2;
+}
+
 int main()
 {
 	int  size = 5;
@@ -275,7 +295,13 @@ int main()
 	MakeDirections();
 	Size = size;
 	shuffle_array(puzzle,25);
+	while(!solvable(puzzle)){
+		shuffle_array(puzzle,25);
+	}
+	cout << "  PUZZLE TO SOLVE  \n--------------------" << endl << endl;
 	PrintPuzzle(puzzle);
+	cout << "--------------------" << endl << endl;
+	// cout<<solvable(puzzle)<<endl;
 	printf("\n===== IDA Star Algiorithm =====\n");
 	IDAStar(puzzle, dir);
 

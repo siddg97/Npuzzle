@@ -222,11 +222,9 @@ void IDAStar(char* puzzle){
 		depth = IdaStar(0, depth, puzzle, lastMove, blank);
 		end = clock();
 		totalCount += nodeCount;
-		printf("Depth = %d, Node Count = %10u, Total Count = %10u, time = %6.2f\n",
-			h, nodeCount, totalCount, (end - start) / 1000.);
+		printf("Depth = %d, Node Count = %10u, Total Count = %10u, time = %6.2f msecs\n",h, nodeCount, totalCount, (end-start)/1000.);
 		if (isSolved){
-			printf("Total Node Count = %u, charest path length = %d, time = %.2f\n",
-				totalCount, depth, (end - start) / 1000.);
+			printf("Total Node Count = %u, shortest path length = %d, time = %.2f msecs\n",totalCount, depth, (end-start)/1000.);
 			return;
 		}
 		h = depth;
@@ -271,20 +269,16 @@ int main(){
 	MakeMDTable(size);
 	MakeMovableTable(size);
 	Size = size;
-	for(uint i=0;i<10;i++){
-		cout << "ITERATION #" << i+1 << endl << "======================" << endl;
+	shuffle_array(puzzle,16);
+	while(!solvable(puzzle)){
 		shuffle_array(puzzle,16);
-		while(!solvable(puzzle)){
-			shuffle_array(puzzle,16);
-		}
-		cout << "  PUZZLE TO SOLVE  \n--------------------" << endl << endl;
-		PrintPuzzle(puzzle);
-		cout << "--------------------" << endl << endl;
-		// cout<<solvable(puzzle)<<endl;
-		printf("\n===== IDA Star Algiorithm =====\n");
-		IDAStar(puzzle);
-		cout << "======================" << endl << endl;
 	}
+	cout << "  PUZZLE TO SOLVE  \n--------------------" << endl << endl;
+	PrintPuzzle(puzzle);
+	cout << "--------------------" << endl << endl;
+	// cout<<solvable(puzzle)<<endl;
+	printf("\n===== IDA Star Algiorithm =====\n");
+	IDAStar(puzzle);
 
 	return 0;
 }
