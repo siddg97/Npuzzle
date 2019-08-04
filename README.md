@@ -2,7 +2,7 @@
 
 ## Group Members:
 ### Jinyoung __(Clara)__ Hong <br>
-###__Siddharth__ Gupta
+### __Siddharth__ Gupta
 
 #### NOTE:
 >We worked on this project using the __pair-programming__ methodology. In this we basically sat down and one person would code and the other would be actively reviewing the code currently written. We would switch the roles of __programmer__ and __reviewer__ every time we got together to work on the project.
